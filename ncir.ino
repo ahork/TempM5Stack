@@ -41,7 +41,7 @@ void loop() {
   M5.Lcd.setCursor(0, 40);
 
   
-  M5.Lcd.print((temperature);
+  M5.Lcd.print(temperature);
   M5.Lcd.print(" °C");
   Serial.println(result);
 
