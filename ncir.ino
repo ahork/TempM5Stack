@@ -18,8 +18,7 @@ void setup() {
   M5.Lcd.setRotation(3);
   M5.Lcd.setTextColor(WHITE);
   M5.Lcd.setTextSize(2);
-  M5.Lcd.setCursor(0, 40);
-
+  
   // active Wifi for call a WebService to send T°
   
 }
@@ -37,15 +36,27 @@ void loop() {
   
   temperature = result * 0.02 - 273.15;
   
-  M5.Lcd.fillRect(0,0,200,200,BLACK);
-  M5.Lcd.setCursor(0, 40);
+  M5.Lcd.fillRect(0,0,200,49,BLACK);
+  M5.Lcd.setCursor(0, 30);
 
   
   M5.Lcd.print(temperature);
-  M5.Lcd.print(" °C");
+  M5.Lcd.print(" C");
   Serial.println(result);
 
+ if (M5.BtnA.wasReleased()) {
+    M5.Lcd.fillRect(0,0,200,200,BLACK);
+    M5.Lcd.setCursor(0, 50);
+    M5.Lcd.print(temperature);
+    M5.Lcd.print(" C (Mem)");
+    
+ }
 
+ if (M5.BtnB.wasReleased()) {
+
+    M5.Lcd.fillRect(0,0,200,200,BLACK);
+   
+ }
 
   // Send Temps a WebService for statistiques    
 
